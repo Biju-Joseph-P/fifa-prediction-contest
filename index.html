@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA World Cup 2026 Prediction Contest</title>
+    <style>
+        :root {
+            --primary-blue: #0b2b5c;
+            --accent-yellow: #f8cb15;
+            --light-bg: #f4f7f6;
+            --dark-green: #14532d;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #1a4d80 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-yellow);
+        }
+
+        .header p {
+            font-size: 1.1em;
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: -30px auto 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        .contest-info {
+            background-color: #fef9c3;
+            border-left: 5px solid var(--accent-yellow);
+            padding: 15px;
+            margin-bottom: 25px;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95em;
+        }
+
+        .form-section-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 5px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 1px;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .btn-submit {
+            background-color: var(--primary-blue);
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            width: 100%;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn-submit:hover {
+            background-color: #113a73;
+        }
+
+        .footer {
+            text-align: center;
+            font-size: 0.85em;
+            color: #666;
+            margin-top: 30px;
+            line-height: 1.6;
+        }
+
+        #loading, #success-msg {
+            display: none;
+            text-align: center;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+        }
+        #success-msg {
+            background-color: #dcfce7;
+            color: var(--dark-green);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Prediction Contest!</h1>
+        <p>FIFA World Cup 2026</p>
+    </div>
+
+    <div class="container">
+        <div class="contest-info">
+            <strong>Exclusively for the employees of Safa Group of Companies.</strong><br>
+            Predict all four categories correctly and stand a chance to win exciting prizes!<br>
+            <strong>Contest Closing Date:</strong> 09 July 2026 (5:00 PM)
+        </div>
+
+        <form id="predictionForm">
+            <div class="form-section-title">Participant Details</div>
+            
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Enter your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email ID *</label>
+                <input type="email" id="email" name="email" required placeholder="username@thesafagroup.com">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter contact number">
+            </div>
+
+            <div class="form-section-title">Your Predictions</div>
+
+            <div class="form-group">
+                <label for="winner">World Cup Winner *</label>
+                <input type="text" id="winner" name="winner" required placeholder="e.g., Argentina, France, Brazil">
+            </div>
+
+            <div class="form-group">
+                <label for="runnerUp">Runner-Up *</label>
+                <input type="text" id="runnerUp" name="runnerUp" required placeholder="Predict the 2nd place team">
+            </div>
+
+            <div class="form-group">
+                <label for="goldenBoot">Golden Boot Winner *</label>
+                <input type="text" id="goldenBoot" name="goldenBoot" required placeholder="Predict top goalscorer">
+            </div>
+
+            <div class="form-group">
+                <label for="goldenBall">Golden Ball Winner *</label>
+                <input type="text" id="goldenBall" name="goldenBall" required placeholder="Predict tournament's best player">
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">Submit Predictions</button>
+            
+            <div id="loading">Submitting your entry... Please wait.</div>
+            <div id="success-msg">🎉 Your predictions have been successfully submitted! Good luck!</div>
+        </form>
+
+        <div class="footer">
+            <strong>SAFA GROUP OF COMPANIES</strong> | SINCE 1990<br>
+            <span style="font-size: 0.9em;">Safa Gold & Diamonds | IGJ | Safa Manufacturing | Clarus | LOROJ | Cozmedics</span>
+        </div>
+    </div>
+
+    <script>
+        // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz3WeT7MaxznstkvslWFFf7-c3IGN9kvSuBPMwamwIBMKfXYKx2KqZOUntg9pEGXFSncA/exec';
+        const form = document.getElementById('predictionForm');
+        const submitBtn = document.getElementById('submitBtn');
+        const loading = document.getElementById('loading');
+        const successMsg = document.getElementById('success-msg');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            submitBtn.style.display = 'none';
+            loading.style.display = 'block';
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    loading.style.display = 'none';
+                    successMsg.style.display = 'block';
+                    form.reset();
+                })
+                .catch(error => {
+                    console.error('Error!', error.message);
+                    alert('An error occurred. Please try again.');
+                    submitBtn.style.display = 'block';
+                    loading.style.display = 'none';
+                });
+        });
+    </script>
+</body>
+</html>
